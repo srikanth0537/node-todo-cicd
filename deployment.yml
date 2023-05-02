@@ -32,3 +32,17 @@ spec:
       targetPort: 8000
   selector:
     app: node-todo-app
+   
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: node-todo-app
+spec:
+  type: NodePort
+  ports:
+    - port: 80
+      targetPort: 8000
+      nodePort: 30080
+  selector:
+    app: node-todo-app
